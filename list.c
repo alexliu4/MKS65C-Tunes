@@ -28,12 +28,22 @@ struct song_node * find_artist( struct song_node * nod ,char* art){
   return NULL;
 }
 
-struct song_node * insert(struct song_node * nod, char * f_artist, char * f_song){
+struct song_node * insert(struct song_node * nod, char * art, char * song){
   return NULL;
 }
 
-struct song_node * find(char * f_artist, char* f_song){
+struct song_node * find(struct song_node * nod, char * art, char* song){
+  while (nod){
+    if ( (!strcmp(nod -> artist, art)) && (!strcmp(nod -> name, song )) ){
+      return nod;
+    }
+    nod = nod -> next;
+  }
   return NULL;
+}
+
+void remove_node(struct song_node * start, struct song_node * gone){
+  
 }
 
 void print_list(struct song_node * nod){
