@@ -3,28 +3,30 @@
 # include <string.h>
 # include "tunes.h"
 
-void print_list(struct node * nod){
+void print_list(struct song_node * nod){
   while(nod){
-    printf("%p: %s\n", nod, nod->value);
+    printf("%p: %s, %s\n", nod, nod->name, nod->artist);
     nod = nod->next;
   }
 }
 
-struct node * insert_front(struct node * head, char * adding){
-  struct node * new;
-  new = (struct node *) malloc(sizeof(struct node));
-  strcpy(new -> value, adding);
+struct song_node * insert_front(struct song_node * head, char * newName, char * newArtist){
+  struct song_node * new;
+  new = (struct song_node *) malloc(sizeof(struct song_node));
+  strcpy(new -> name, newName);
+  strcpy(new -> artist, newArtist);
   new -> next = head;
   return new;
 }
 
-struct node * free_list(struct node * nod){
-  struct node * start = nod;
-  struct node * temp; 
+struct song_node * free_list(struct song_node * nod){
+  struct song_node * start = nod;
+  struct song_node * temp; 
   while(nod){
     temp = nod -> next;
     //printf("%p: %d\n", nod, nod->i);
-    strcpy(nod -> value, "");
+    strcpy(nod -> name, "");
+    strcpy(nod -> artist, "");
     nod -> next = NULL;
     free(nod);
     //printf("%p: %d\n", nod, nod->i);
