@@ -5,7 +5,7 @@
 
 void print_list(struct song_node * nod){
   while(nod){
-    printf("%p: %s, %s\n", nod, nod->name, nod->artist);
+    printf("%p: %s | %s\n", nod, nod->name, nod->artist);
     nod = nod->next;
   }
 }
