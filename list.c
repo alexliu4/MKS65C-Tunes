@@ -49,15 +49,14 @@ void remove_node(struct song_node * current, struct song_node * gone){
   }
   current = current -> next;
   while (current){
-    printf("while works");
-    if (&current == &gone){
+    printf("current :%p , gone:%p \n", current , gone);
+    if (current == gone){
       (previous -> next) = (current -> next);
-      printf("REMOVED");
       free(current);
     }
     previous = previous -> next;
     current = current -> next;
-    if (current && &current == &gone){
+    if (current && current == gone){
       free(current);
     }
   }
