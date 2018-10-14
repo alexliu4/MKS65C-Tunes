@@ -14,5 +14,6 @@ clear:
 	rm *.o
 	rm tunes
 
-run:
+run: all
 	./tunes
+	make clear
