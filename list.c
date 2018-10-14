@@ -7,11 +7,14 @@
 struct song_node * find_random(struct song_node * nod){
   struct song_node * copy = nod;
   int len = 0;
+  //find length first
   while (nod){
     nod = nod -> next;
     len++;
   }
+  //sets random number, n, from range of len
   int randNum = rand() % len;
+  //finds the nth node
   while (randNum--){
     copy = copy -> next;
   }
@@ -19,6 +22,7 @@ struct song_node * find_random(struct song_node * nod){
 }
 
 struct song_node * find_artist( struct song_node * nod ,char* art){
+  //iterates through until it finds the matching artist in the linked list
   while (nod){
     if (!strcmp(nod -> artist, art)){
       return nod;
@@ -33,6 +37,7 @@ struct song_node * insert(struct song_node * nod, char * art, char * song){
 }
 
 struct song_node * find(struct song_node * nod, char * art, char* song){
+  //iterates through until it finds the matching artist and song in the linked list
   while (nod){
     if ( (!strcmp(nod -> artist, art)) && (!strcmp(nod -> name, song )) ){
       return nod;
@@ -44,18 +49,21 @@ struct song_node * find(struct song_node * nod, char * art, char* song){
 
 void remove_node(struct song_node * current, struct song_node * gone){
   struct song_node * previous = current;
+  //removes first node if the first node is "gone"
   if (&current == &gone){
     free(current);
   }
   current = current -> next;
   while (current){
-    printf("current :%p , gone:%p \n", current , gone);
+    //printf("current :%p , gone:%p \n", current , gone);
+    //removes middle node
     if (current == gone){
       (previous -> next) = (current -> next);
       free(current);
     }
     previous = previous -> next;
     current = current -> next;
+    //to remove last node if the last node is "gone"
     if (current && current == gone){
       free(current);
     }
@@ -81,6 +89,7 @@ struct song_node * insert_front(struct song_node * head, char * newArtist, char 
 struct song_node * free_list(struct song_node * nod){
   struct song_node * start = nod;
   struct song_node * temp;
+  //iterates through freeing each element
   while(nod){
     temp = nod -> next;
     //printf("%p: %d\n", nod, nod->i);

@@ -19,28 +19,23 @@ int main(){
 
   //removes d
   remove_node(d, d);
-  printf("Removing Specfic\n\n\n");
-
-  printf("=====Printing New List=====\n");
+  printf("=====Removing first element=====\n");
   print_list(c);
   printf("=====Finished Printing New List=====\n\n");
 
   //removes b
   remove_node(c, b);
-  printf("Removing Specfic\n\n\n");
-
-  printf("=====Printing New List=====\n");
+  printf("=====Removing middle element=====\n");
   print_list(c);
   printf("=====Finished Printing New List=====\n\n");
 
   //removes a
   remove_node(c, a);
-  printf("Removing Specfic\n\n\n");
-
-  printf("=====Printing New List=====\n");
+  printf("=====Removing end element=====\n");
   print_list(c);
   printf("=====Finished Printing New List=====\n\n");
 
+  //frees entire list
   free_list(d);
   printf("=====Printing freed list=====\n");
   print_list(d);
