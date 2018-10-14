@@ -1,6 +1,6 @@
 # include <stdio.h>
 # include <stdlib.h>
-# include "tunes.h"
+# include "list.h"
 
 int main(){
   struct song_node * a = insert_front(NULL,"alex", "hi");
