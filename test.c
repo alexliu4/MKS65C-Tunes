@@ -12,11 +12,12 @@ int main(){
   printf("=====Printing list=====\n");
   print_list(d);
   printf("=====Finished printing list=====\n\n");
-  
+
+  printf("Finding Random: %p\n\n",(find_random(d)) );
+
   free_list(d);
   printf("=====Printing freed list=====\n");
   print_list(d);
   return 0;
-  
-}
 
+}
