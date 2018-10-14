@@ -1,14 +1,15 @@
 all: tunes.o test.o
-	gcc tunes.o test.o
+	gcc tunes.o test.o -o tunes
 
 list.o: tunes.c tunes.h
-	gcc -c tunes.c
+	gcc -g tunes.c
 
 main.o: test.c tunes.h
-	gcc -c test.c
+	gcc -g test.c
 
 clear:
 	rm *.o
+	rm tunes
 
 run:
-	./a.out
+	./tunes
