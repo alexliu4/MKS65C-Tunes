@@ -3,6 +3,14 @@
 # include <string.h>
 # include "tunes.h"
 
+struct song_node * insert(struct song_node * nod, char * f_artist, char * f_song){
+  return NULL;
+}
+
+struct song_node * find(char * f_artist, char* f_song){
+  return NULL;
+}
+
 void print_list(struct song_node * nod){
   while(nod){
     printf("%p: %s | %s\n", nod, nod->name, nod->artist);
