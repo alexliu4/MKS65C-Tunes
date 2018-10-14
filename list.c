@@ -18,6 +18,15 @@ struct song_node * find_random(struct song_node * nod){
   return copy;
 }
 
+struct song_node * find_artist( struct song_node * nod ,char* art){
+  while (nod){
+    if (!strcmp(nod -> artist, art)){
+      return nod;
+    }
+    nod = nod -> next;
+  }
+  return NULL;
+}
 
 struct song_node * insert(struct song_node * nod, char * f_artist, char * f_song){
   return NULL;
@@ -34,7 +43,7 @@ void print_list(struct song_node * nod){
   }
 }
 
-struct song_node * insert_front(struct song_node * head, char * newName, char * newArtist){
+struct song_node * insert_front(struct song_node * head, char * newArtist, char * newName){
   struct song_node * new;
   new = (struct song_node *) malloc(sizeof(struct song_node));
   strcpy(new -> name, newName);
@@ -45,7 +54,7 @@ struct song_node * insert_front(struct song_node * head, char * newName, char * 
 
 struct song_node * free_list(struct song_node * nod){
   struct song_node * start = nod;
-  struct song_node * temp; 
+  struct song_node * temp;
   while(nod){
     temp = nod -> next;
     //printf("%p: %d\n", nod, nod->i);
@@ -58,6 +67,3 @@ struct song_node * free_list(struct song_node * nod){
   }
   return start;
 }
-
-
-

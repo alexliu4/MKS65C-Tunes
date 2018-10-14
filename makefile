@@ -10,10 +10,10 @@ list.o: list.c list.h
 test.o: test.c tunes.h
 	gcc -c test.c
 
-clear:
+clean:
 	rm *.o
 	rm tunes
 
 run: all
 	./tunes
-	make clear
+	make clean

@@ -14,6 +14,7 @@ int main(){
   printf("=====Finished printing list=====\n\n");
 
   printf("Finding Random: %p\n\n",(find_random(d)) );
+  printf("Finding Artist: %p\n\n",(find_artist(d, "hello")) );
 
   free_list(d);
   printf("=====Printing freed list=====\n");
