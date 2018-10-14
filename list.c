@@ -42,8 +42,25 @@ struct song_node * find(struct song_node * nod, char * art, char* song){
   return NULL;
 }
 
-void remove_node(struct song_node * start, struct song_node * gone){
-  
+void remove_node(struct song_node * current, struct song_node * gone){
+  struct song_node * previous = current;
+  if (&current == &gone){
+    free(current);
+  }
+  current = current -> next;
+  while (current){
+    printf("while works");
+    if (&current == &gone){
+      (previous -> next) = (current -> next);
+      printf("REMOVED");
+      free(current);
+    }
+    previous = previous -> next;
+    current = current -> next;
+    if (current && &current == &gone){
+      free(current);
+    }
+  }
 }
 
 void print_list(struct song_node * nod){

@@ -17,6 +17,30 @@ int main(){
   printf("Finding Artist: %p\n\n",(find_artist(d, "karen")) );
   printf("Finding Specfic: %p\n\n",(find(d, "amy", "santiago")) );
 
+  //removes d
+  remove_node(d, d);
+  printf("Removing Specfic\n\n\n");
+
+  printf("=====Printing New List=====\n");
+  print_list(c);
+  printf("=====Finished Printing New List=====\n\n");
+
+  //removes b
+  remove_node(c, b);
+  printf("Removing Specfic\n\n\n");
+
+  printf("=====Printing New List=====\n");
+  print_list(c);
+  printf("=====Finished Printing New List=====\n\n");
+
+  //removes a
+  remove_node(c, a);
+  printf("Removing Specfic\n\n\n");
+
+  printf("=====Printing New List=====\n");
+  print_list(c);
+  printf("=====Finished Printing New List=====\n\n");
+
   free_list(d);
   printf("=====Printing freed list=====\n");
   print_list(d);
