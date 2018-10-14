@@ -1,8 +1,10 @@
 # include <stdio.h>
 # include <stdlib.h>
+# include <time.h>
 # include "list.h"
 
 int main(){
+  srand(time(NULL));
   struct song_node * a = insert_front(NULL,"alex", "hi");
   struct song_node * b = insert_front(a,"karen", "hello");
   struct song_node * c = insert_front(b,"amy", "santiago");

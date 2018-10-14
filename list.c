@@ -1,7 +1,24 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+# include <time.h>
 # include "list.h"
+
+
+struct song_node * find_random(struct song_node * nod){
+  struct song_node * copy = nod;
+  int len = 0;
+  while (nod){
+    nod = nod -> next;
+    len++;
+  }
+  int randNum = rand() % len;
+  while (randNum--){
+    copy = copy -> next;
+  }
+  return copy;
+}
+
 
 struct song_node * insert(struct song_node * nod, char * f_artist, char * f_song){
   return NULL;
