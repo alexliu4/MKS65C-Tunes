@@ -43,6 +43,7 @@ struct song_node * find(struct song_node * nod, char * art, char* song){
   return NULL;
 }
 
+//helper function
 struct song_node * new_node(char * newArt, char * newName){
   struct song_node * new;
   new = (struct song_node *) malloc(sizeof(struct song_node));
@@ -60,24 +61,27 @@ struct song_node * insert_front(struct song_node * head, char * newArt, char * n
 
 struct song_node * insert(struct song_node * current, char * newArt, char * newName){
   struct song_node * previous = current;
+  struct song_node * new;
+
   //if nod belongs first alphabetically
   if ( strcmp(current -> artist, newArt) > 0 ){
-    insert_front(current, newArt, newName);
-    return current;
+    new = insert_front(current, newArt, newName);
+    return new;
   }
   //else iterate through the linked list to find place for nod
+  new = new_node(newArt, newName);
   current = current -> next;
-  while (current){
+  while (current -> next){
     if ( strcmp(current -> artist, newArt) > 0){
-      struct song_node * new;
-      new = new_node(newArt, newName);
+      previous -> next = new;
       new -> next = current;
-      return current;
+      return new;
     }
     previous = previous -> next;
     current = current -> next;
   }
-  return current;
+  previous -> next = new;
+  return new;
 }
 
 void remove_node(struct song_node * current, struct song_node * gone){
@@ -97,7 +101,7 @@ void remove_node(struct song_node * current, struct song_node * gone){
     previous = previous -> next;
     current = current -> next;
     //to remove last node if the last node is "gone"
-    if (current && current == gone){
+    if (current == gone){
       free(current);
     }
   }
