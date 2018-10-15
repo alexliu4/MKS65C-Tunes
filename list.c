@@ -32,16 +32,6 @@ struct song_node * find_artist( struct song_node * nod ,char* art){
   return NULL;
 }
 
-struct song_node * insert(struct song_node * nod, char * art, char * song){
-  
-  while (nod){
-    if ( !strcmp(nod -> artist, art) ){
-      return nod;
-    }
-    nod = nod -> next;
-  }
-}
-
 struct song_node * find(struct song_node * nod, char * art, char* song){
   //iterates through until it finds the matching artist and song in the linked list
   while (nod){
@@ -51,6 +41,43 @@ struct song_node * find(struct song_node * nod, char * art, char* song){
     nod = nod -> next;
   }
   return NULL;
+}
+
+struct song_node * new_node(char * newArt, char * newName){
+  struct song_node * new;
+  new = (struct song_node *) malloc(sizeof(struct song_node));
+  strcpy(new -> name, newName);
+  strcpy(new -> artist, newArt);
+  return new;
+}
+
+struct song_node * insert_front(struct song_node * head, char * newArt, char * newName){
+  struct song_node * new;
+  new = new_node(newArt, newName);
+  new -> next = head;
+  return new;
+}
+
+struct song_node * insert(struct song_node * current, char * newArt, char * newName){
+  struct song_node * previous = current;
+  //if nod belongs first alphabetically
+  if ( strcmp(current -> artist, newArt) > 0 ){
+    insert_front(current, newArt, newName);
+    return current;
+  }
+  //else iterate through the linked list to find place for nod
+  current = current -> next;
+  while (current){
+    if ( strcmp(current -> artist, newArt) > 0){
+      struct song_node * new;
+      new = new_node(newArt, newName);
+      new -> next = current;
+      return current;
+    }
+    previous = previous -> next;
+    current = current -> next;
+  }
+  return current;
 }
 
 void remove_node(struct song_node * current, struct song_node * gone){
@@ -77,19 +104,12 @@ void remove_node(struct song_node * current, struct song_node * gone){
 }
 
 void print_list(struct song_node * nod){
+  printf("                ARTIST | SONG\n");
+  //prints pointer then artist and song name
   while(nod){
-    printf("%p: %s | %s\n", nod, nod->name, nod->artist);
+    printf("%p: %s | %s\n", nod, nod->artist, nod->name);
     nod = nod->next;
   }
-}
-
-struct song_node * insert_front(struct song_node * head, char * newArtist, char * newName){
-  struct song_node * new;
-  new = (struct song_node *) malloc(sizeof(struct song_node));
-  strcpy(new -> name, newName);
-  strcpy(new -> artist, newArtist);
-  new -> next = head;
-  return new;
 }
 
 struct song_node * free_list(struct song_node * nod){
