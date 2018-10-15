@@ -33,7 +33,7 @@ struct song_node * find_artist( struct song_node * nod ,char* art){
 }
 
 struct song_node * insert(struct song_node * nod, char * art, char * song){
-  return NULL;
+  return nod;
 }
 
 struct song_node * find(struct song_node * nod, char * art, char* song){
