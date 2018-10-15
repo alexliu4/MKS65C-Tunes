@@ -4,7 +4,7 @@
 # include <time.h>
 # include "tunes.h"
 
-
+/*
 int main(){
 
   int count = 0;
@@ -20,3 +20,4 @@ int main(){
   return 0;
 
 }
+*/
