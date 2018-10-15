@@ -1,3 +1,0 @@
-struct song_node * table[27];
-
-struct song_node * add(* struct song_node *);
