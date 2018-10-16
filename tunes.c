@@ -13,8 +13,18 @@ void print_library(){
   }
 }
 
+void print_letter(char letter[]){
+  int i = 0;
+  while (strncasecmp(letter, alphabet[i], 1) && i < 27){
+    i++;
+  }
+  //printf("%d: ", i);
+  print_list(table[i]);
+  
+}
+
 /*
 int main(){
-  print_library();
+  print_letter("z");
 }
 */
