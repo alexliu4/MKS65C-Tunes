@@ -3,7 +3,7 @@
 # include <string.h>
 # include <time.h>
 # include "tunes.h"
-# include "list.c"
+# include "list.h"
 
 int find_index(char * art){
   int i = 0;
@@ -56,7 +56,9 @@ struct song_node * add( char * art, char * name){
   return insert(table[i], art, name);
 }
 
+/*
 int main(){
   clear_library();
 }
 
+*/
