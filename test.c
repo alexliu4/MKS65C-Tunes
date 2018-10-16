@@ -2,6 +2,7 @@
 # include <stdlib.h>
 # include <time.h>
 # include "list.h"
+//# include "tunes.h"
 //test
 
 int main(){
@@ -56,4 +57,9 @@ int main(){
   print_list(e);
   return 0;
 
+  /*
+  printf("========TESTING TUNES==========");
+  add("does", "donten");
+  print_library();
+  */
 }

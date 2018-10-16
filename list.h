@@ -1,7 +1,8 @@
 #ifndef INCL_LIST
 #define INCL_LIST
+
 struct song_node{
-  char name[20];
+  char name[100];
   char artist[100];
   struct song_node * next;
 };
