@@ -3,21 +3,18 @@
 # include <string.h>
 # include <time.h>
 # include "tunes.h"
+# include "list.c"
+
+void print_library(){
+  int i;;
+  for (i=0; i < 27; i++){
+    //printf("%d: ", i);
+    print_list(table[i]);
+  }
+}
 
 /*
 int main(){
-
-  int count = 0;
-  
-  for (char ch = 'A'; ch <= 'Z'; ++ch) {
-    int count = ch - 'A';
-    printf("%d\n", count);
-  }
-
-  printf("==============\n");
-  printf("%d\n", strcmp( "ax", "ceeeee"));
- 
-  return 0;
-
+  print_library();
 }
 */
