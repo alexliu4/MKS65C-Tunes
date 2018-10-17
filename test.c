@@ -2,7 +2,7 @@
 # include <stdlib.h>
 # include <time.h>
 # include "list.h"
-//# include "tunes.h"
+# include "tunes.h"
 //test
 
 int main(){
@@ -20,7 +20,7 @@ int main(){
   printf("Finding Artist: %p\n\n",(find_artist(e, "karen")) );
   printf("Finding Specfic: %p\n\n",(find(e, "amy", "santiago")) );
 
-  /*
+  
 
   struct song_node * x = insert(e, "blah", "nothing");
   struct song_node * y = insert(e, "aaa", "front");
@@ -29,7 +29,9 @@ int main(){
   print_list(y);
   printf("=====Finished printing NEW list=====\n\n");
 
-  */
+ 
+
+  /*
 
   //removes y
   remove_node(e, e);
@@ -49,6 +51,8 @@ int main(){
   print_list(d);
   printf("=====Finished Printing New List=====\n\n");
 
+  */
+
   
 
   //frees entire list
@@ -62,4 +66,5 @@ int main(){
   add("does", "donten");
   print_library();
   */
+  
 }
