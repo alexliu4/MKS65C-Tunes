@@ -4,6 +4,10 @@
 # include <time.h>
 # include "list.h"
 
+void print_node(struct song_node * nod){
+  printf("%p: %s | %s\n", nod, nod->artist, nod->name);
+}
+
 struct song_node * find_random(struct song_node * nod){
   struct song_node * copy = nod;
   int len = 0;

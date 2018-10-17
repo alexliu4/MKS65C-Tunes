@@ -56,9 +56,20 @@ struct song_node * add( char * art, char * name){
   return insert(table[i], art, name);
 }
 
-/*
+void shuffle (int i){
+  while(i--){
+    print_node(find_random(table[rand()%27]));
+  }
+}
+
+void print_artist(char* art){
+  
+}
+
+
 int main(){
+  srand(time(NULL));
+  
   clear_library();
 }
 
-*/
