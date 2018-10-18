@@ -116,7 +116,7 @@ void print_list(struct song_node * nod){
   //prints pointer then artist and song name
   int i = 0;
   while(nod){
-    printf("inside while looop\n");
+    printf("inside while loop\n");
     printf("%d\n",i);
     i++;
     //printf("%p: %s | %s\n", nod, nod->artist, nod->name);

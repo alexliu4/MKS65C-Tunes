@@ -7,6 +7,17 @@
 
 char* alphabet[26] = {"a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"};
 
+struct library * new_lib(){
+  struct library * lib = (struct library *) malloc(sizeof(struct library));
+  int i = 0;
+  while (i<27){
+    lib -> table[i] = malloc(sizeof(struct song_node));
+    lib -> table[i] = NULL;
+    i++;
+  } 
+  return lib;
+}
+
 int find_index(char * art){
   int i = 0;
   while (strncasecmp(art, alphabet[i], 1) && i < 27){
@@ -16,69 +27,63 @@ int find_index(char * art){
   return i;
 }
 
-void print_library(){
+void print_library(struct library * lib){
   int i;;
   for (i=0; i < 27; i++){
     //printf("%d: ", i);
-    print_list(table[i]);
+    print_list(lib -> table[i]);
   }
 }
 
-struct song_node * clear_library(){
+struct song_node * clear_library(struct library * lib){
   int i;;
   for (i=0; i < 27; i++){
     //printf("%d: ", i);
-    free_list(table[i]);
+    free_list(lib -> table[i]);
   }
 }
 
-void print_letter(char * letter){
+void print_letter(struct library * lib, char * letter){
   int i = find_index(letter);
   //printf("%d: ", i);
-  print_list(table[i]);
+  print_list(lib -> table[i]);
   
 }
 
-void delete_song(char* art, char* name){
+void delete_song(struct library * lib, char* art, char* name){
   int i = find_index(art);
-  remove_node(table[i], find(table[i], art, name));
+  remove_node(lib -> table[i], find(lib->table[i], art, name));
 }
 
-struct song_node * find_library(char * art, char * name){
+struct song_node * find_library(struct library * lib, char * art, char * name){
   int i = find_index(art);
-  return find(table[i], art, name);
+  return find(lib->table[i], art, name);
 }
 
-struct song_node * find_library_art(char * art){
+struct song_node * find_library_art(struct library * lib, char * art){
   int i = find_index(art);
-  return find_artist(table[i], art);
+  return find_artist(lib->table[i], art);
 }
 
-struct song_node * add( char * art, char * name){
+struct song_node * add(struct library * lib, char * art, char * name){
   //printf("inside add function\n");
   int i = find_index(art);
-  //printf("%d", i);
-  return insert(table[i], art, name);
+  //printf("%d\n", i);
+  return insert(lib -> table[i], art, name);
 }
 
-void shuffle (int i){
+void shuffle (struct library * lib, int i){
   while(i--){
-    print_node(find_random(table[rand()%27]));
+    print_node(find_random(lib->table[rand()%27]));
   }
 }
 
-void print_artist(char* art){
+void print_artist(struct library * lib, char* art){
   
 }
 
-/*
-int main(){
-  srand(time(NULL));
-  printf("testing add\n");
-  add("does", "donten");
-  //print_library();
-  clear_library();
-}
 
 
-*/
+
+
+

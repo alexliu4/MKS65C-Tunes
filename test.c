@@ -7,6 +7,7 @@
 
 int main(){
   srand(time(NULL));
+  /*
   struct song_node * a = insert_front(NULL,"zoe", "bye");
   struct song_node * b = insert_front(a,"karen", "hello");
   struct song_node * c = insert_front(b,"jake", "peralta");
@@ -51,7 +52,7 @@ int main(){
   print_list(d);
   printf("=====Finished Printing New List=====\n\n");
 
-  */
+  
 
   
 
@@ -60,11 +61,14 @@ int main(){
   printf("=====Printing freed list=====\n");
   print_list(e);
   return 0;
-
-  /*
-  printf("========TESTING TUNES==========");
-  add("does", "donten");
-  print_library();
   */
+  
+  printf("========TESTING TUNES==========\n");
+  struct library * lib0 = new_lib();
+  print_library(lib0);
+  struct song_node* gintama = add(lib0, "does", "donten");
+  print_list(lib0->table[3]);
+  print_node(gintama);
+  
   
 }
