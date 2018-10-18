@@ -14,7 +14,7 @@ struct library * new_lib(){
     lib -> table[i] = malloc(sizeof(struct song_node));
     lib -> table[i] = NULL;
     i++;
-  } 
+  }
   return lib;
 }
 
@@ -28,7 +28,7 @@ int find_index(char * art){
 }
 
 void print_library(struct library * lib){
-  int i;;
+  int i;
   for (i=0; i < 27; i++){
     //printf("%d: ", i);
     print_list(lib -> table[i]);
@@ -36,7 +36,7 @@ void print_library(struct library * lib){
 }
 
 struct song_node * clear_library(struct library * lib){
-  int i;;
+  int i;
   for (i=0; i < 27; i++){
     //printf("%d: ", i);
     free_list(lib -> table[i]);
@@ -47,7 +47,7 @@ void print_letter(struct library * lib, char * letter){
   int i = find_index(letter);
   //printf("%d: ", i);
   print_list(lib -> table[i]);
-  
+
 }
 
 void delete_song(struct library * lib, char* art, char* name){
@@ -79,11 +79,5 @@ void shuffle (struct library * lib, int i){
 }
 
 void print_artist(struct library * lib, char* art){
-  
+
 }
-
-
-
-
-
-
