@@ -63,7 +63,9 @@ struct song_node * insert_front(struct song_node * head, char * newArt, char * n
 }
 
 struct song_node * insert(struct song_node * current, char * newArt, char * newName){
-  
+
+  //printf("inside insert: WORKING");
+
   struct song_node * previous = current;
   struct song_node * new;
 

@@ -21,7 +21,7 @@ int main(){
   printf("Finding Artist: %p\n\n",(find_artist(e, "karen")) );
   printf("Finding Specfic: %p\n\n",(find(e, "amy", "santiago")) );
 
-  
+
 
   struct song_node * x = insert(e, "blah", "nothing");
   struct song_node * y = insert(e, "aaa", "front");
@@ -30,9 +30,8 @@ int main(){
   print_list(y);
   printf("=====Finished printing NEW list=====\n\n");
 
- 
 
-  /*
+
 
   //removes y
   remove_node(e, e);
@@ -52,9 +51,9 @@ int main(){
   print_list(d);
   printf("=====Finished Printing New List=====\n\n");
 
-  
 
-  
+
+
 
   //frees entire list
   free_list(e);
@@ -62,13 +61,13 @@ int main(){
   print_list(e);
   return 0;
   */
-  
+
   printf("========TESTING TUNES==========\n");
   struct library * lib0 = new_lib();
   print_library(lib0);
   struct song_node* gintama = add(lib0, "does", "donten");
   print_list(lib0->table[3]);
   print_node(gintama);
-  
-  
+
+
 }
