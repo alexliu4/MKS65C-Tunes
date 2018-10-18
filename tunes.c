@@ -35,7 +35,7 @@ void print_library(struct library * lib){
   }
 }
 
-struct song_node * clear_library(struct library * lib){
+void clear_library(struct library * lib){
   int i;
   for (i=0; i < 27; i++){
     //printf("%d: ", i);
